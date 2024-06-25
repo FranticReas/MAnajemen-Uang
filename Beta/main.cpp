@@ -5,6 +5,7 @@ int main() {
     int pilihan;
 
     do {
+        pengelola.clearScreen();
         cout << "\nPengelola Keuangan\n";
         cout << "1. Tambah Transaksi\n";
         cout << "2. Lihat Ringkasan\n";
@@ -36,6 +37,7 @@ int main() {
             break;
         }
         case 5:
+            pengelola.clearScreen();
             cout << "Keluar...\n";
             break;
         default:

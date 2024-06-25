@@ -15,6 +15,7 @@ public:
     void tampilkanRingkasan() const;
     void tampilkanTransaksi(bool urutkan = false);
     void cariTransaksiKategori(const string& kategori) const;
+    void clearScreen() const;
 };
 
 #endif
