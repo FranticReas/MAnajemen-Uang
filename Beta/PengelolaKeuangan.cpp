@@ -47,14 +47,15 @@ void PengelolaKeuangan::tampilkanTransaksi(bool urutkan) {
             return a.tanggal < b.tanggal;
             });
 
-        cout << "\nDaftar Transaksi (Diurutkan berdasarkan tanggal):\n";
-        cout << left << setw(15) << "Tanggal" << setw(25) << "Kategori" << setw(15) << "Jumlah" << endl;
-        cout << setfill('=') << setw(55) << "" << setfill(' ') << "\n";
+        cout << "+" << setfill('-') << setw(63) << "+" << setfill(' ') << endl;
+        cout << "|" << left << setw(15) << "Tanggal" << "|" << setw(25) << "Kategori" << "|" << setw(20) << "Jumlah" << "|" << endl;
+        cout << "+" << setfill('-') << right << setw(63) << "+" << setfill(' ') << endl; // Separator line
         for (const auto& transaksi : transaksiVector) {
-            cout << left << setw(15) << transaksi.tanggal
-                << setw(25) << transaksi.kategori
-                << left << setw(15) << fixed << setprecision(2) << transaksi.jumlah << "\n";
+            cout << "|" << left << setw(15) << transaksi.tanggal << "|" 
+                << setw(25) << transaksi.kategori << "|"
+                << left << setw(20) << fixed << setprecision(2) << transaksi.jumlah << "|" << endl;
         }
+        cout << "+" << setfill('-') << right << setw(63) << "+" << setfill(' ') << endl;
         system("pause");
     }
     else {

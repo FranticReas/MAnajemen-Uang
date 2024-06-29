@@ -18,14 +18,16 @@ void LinkedList::addTransaction(const Transaksi& transaksi) {
 
 void LinkedList::displayTransactions() const {
     Node* temp = head;
-    cout << left << setw(15) << "Tanggal" << setw(25) << "Kategori" << setw(15) << "Jumlah" << endl;
-    cout << setfill('=') << setw(55) << "" << setfill(' ') << endl; // Separator line
+    cout << "+" << setfill('-') << setw(63) << "+" << setfill(' ') << endl;
+    cout << "|" << left << setw(15) << "Tanggal" << "|" << setw(25) << "Kategori" << "|" << setw(20) << "Jumlah" << "|" << endl;
+    cout << "+" << setfill('-') << right << setw(63) << "+" << setfill(' ') << endl; // Separator line
     while (temp) {
-        cout << left << setw(15) << temp->data.tanggal
-            << setw(25) << temp->data.kategori
-            << left << setw(15) << fixed << setprecision(2) << temp->data.jumlah << endl;
+        cout << "|" << left << setw(15) << temp->data.tanggal << "|"
+            << setw(25) << temp->data.kategori << "|"
+            << left << setw(20) << fixed << setprecision(2) << temp->data.jumlah << "|" << endl;
         temp = temp->next;
     }
+    cout << "+" << setfill('-') << right << setw(63) << "+" << setfill(' ') << endl;
     system("pause");
 }
 
@@ -42,17 +44,19 @@ vector<Transaksi> LinkedList::toVector() const {
 void LinkedList::searchByCategory(const string& kategori) const {
     Node* temp = head;
     bool found = false;
-    cout << left << setw(15) << "Tanggal" << setw(25) << "Kategori" << setw(15) << "Jumlah" << endl;
-    cout << setfill('=') << setw(55) << "" << setfill(' ') << endl; // Separator line
+    cout << "+" << setfill('-') << setw(63) << "+" << setfill(' ') << endl;
+    cout << "|" << left << setw(15) << "Tanggal" << "|" << setw(25) << "Kategori" << "|" << setw(20) << "Jumlah" << "|" << endl;
+    cout << "+" << setfill('-') << right << setw(63) << "+" << setfill(' ') << endl; // Separator line
     while (temp) {
         if (temp->data.kategori == kategori) {
-            cout << left << setw(15) << temp->data.tanggal
-                << setw(25) << temp->data.kategori
-                << left << setw(15) << fixed << setprecision(2) << temp->data.jumlah << endl;
+            cout << "|" << left << setw(15) << temp->data.tanggal << "|"
+                << setw(25) << temp->data.kategori << "|"
+                << left << setw(20) << fixed << setprecision(2) << temp->data.jumlah << "|" << endl;
             found = true;
         }
         temp = temp->next;
     }
+    cout << "+" << setfill('-') << right << setw(63) << "+" << setfill(' ') << endl;
     system("pause");
     if (!found) {
         cout << "Tidak ada transaksi dengan kategori \"" << kategori << "\".\n";
