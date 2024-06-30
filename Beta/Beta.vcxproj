@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="PengelolaKeuangan.h" />
+    <ClInclude Include="spinner.h" />
     <ClInclude Include="transaksi.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>

@@ -2,18 +2,23 @@
 #include "user.h"
 #include "transaksi.h"
 #include <iostream>
+#include "spinner.h"
+#include <thread>
+#include <chrono>
 
 using namespace std;
 string username, password;
 
 void mainmenu();
-void inisialisasi();
+void ucapan_selamat_datang();
+void color(int nomor);
+void gotoxy(int x, int y);
 
 int main() {
     PengelolaKeuangan pengelola;
     int pilihan;
     Auth auth;
-    inisialisasi();
+    ucapan_selamat_datang();
 
     do
     {
@@ -82,7 +87,7 @@ void mainmenu()
         cout << "2. Lihat Ringkasan\n";
         cout << "3. Lihat Transaksi\n";
         cout << "4. Cari Transaksi berdasarkan Kategori\n";
-        //Urutin dari tanggal
+        //Cari dari tanggal
         //Menghapus transaksi
         cout << "5. Keluar\n";
         cout << "Masukkan pilihan Anda: ";
@@ -120,17 +125,49 @@ void mainmenu()
     } while (pilihan != 5);
 }
 
-void inisialisasi()
+void ucapan_selamat_datang()
 {
-    std::vector <User> user;
-    std::ifstream akunt("user.txt");
-    if (akunt.is_open())
+    Spinner spinner;
+    const char selamat_datang[] = "FINANCIAL MANAGEMENT APP";
+    const char selamat_datang2[] = "DELTA ENTERPRISE";
+
+    const int kalimat_selamat_datang = sizeof(selamat_datang) / sizeof(selamat_datang[0]);
+    const int kalimat_selamat_datang2 = sizeof(selamat_datang2) / sizeof(selamat_datang2[0]);
+
+    color(11);
+    for (int x = 0; x < kalimat_selamat_datang; ++x)
     {
-        std::string username, password;
-        while (std::getline(akunt, username, ' '))
-        {
-            std::getline(akunt, password);
-            user.push_back({ username, password });
-        }
+        gotoxy((x + 50), 4);
+        //system("Color 0A");
+
+        std::cout << selamat_datang[x];
+        Sleep(50);
     }
+    std::cout << '\n';
+
+    for (int x = 0; x < kalimat_selamat_datang2; ++x)
+    {
+        gotoxy((x + 54), 5);
+        //system("Color 0A");
+        std::cout << selamat_datang2[x];
+        Sleep(50);
+    }
+    spinner.start();
+    std::cout << "\n\n";
+    color(7);
+    Sleep(3000);
+    spinner.stop();
+}
+
+void color(int nomor)
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), nomor);
+}
+
+void gotoxy(int x, int y)
+{
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }

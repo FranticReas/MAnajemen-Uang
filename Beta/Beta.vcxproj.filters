@@ -27,6 +27,9 @@
     <ClInclude Include="transaksi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="spinner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LinkedList.cpp">
