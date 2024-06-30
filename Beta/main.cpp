@@ -129,10 +129,16 @@ void mainmenu()
         }
         case 6:
         {
-            pengelola.clearScreen();
-            cout << "Selamat datang, Admin! Berikut adalah log transaksi:" << endl;
-            LogTransaksi::displayLog();
-            system("pause");
+            if (auth.isAdmin(username))
+            {
+                pengelola.clearScreen();
+                cout << "Selamat datang, Admin! Berikut adalah log transaksi:" << endl;
+                LogTransaksi::displayLog();
+                system("pause");
+            }
+            else {
+                cout << "Pilihan tidak valid. Silakan coba lagi.\n";
+            }
             break;
         }
         default:

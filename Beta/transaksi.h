@@ -33,12 +33,12 @@ public:
         if (infile.is_open()) {
             string username, tanggal, kategori;
             double jumlah;
-            cout << "+" << setfill('-') << setw(63) << "+" << setfill(' ') << endl;
+            cout << "+" << setfill('-') << setw(63) << right << "+" << setfill(' ') << endl;
             cout << "|" << left << setw(16) << "Username"
                  << "|" << left << setw(16) << "Tanggal"
                  << "|" << left << setw(16) << "Kategori"
                  << "|" << left << setw(11) << "Jumlah" << "|" << endl;
-            cout << "+" << setfill('-') << setw(63) << "+" << setfill(' ') << endl;
+            cout << "+" << setfill('-') << setw(63) << right << "+" << setfill(' ') << endl;
 
             while (infile >> username >> tanggal >> kategori >> jumlah) {
                 cout << "|" << left << setw(16) << username << "|"
@@ -46,7 +46,7 @@ public:
                     << left << setw(16) << kategori << "|"
                     << left << setw(11) << jumlah << "|" << endl;
             }
-            cout << "+" << setfill('-') << setw(63) << "+" << setfill(' ') << endl;
+            cout << "+" << setfill('-') << setw(63) << right << "+" << setfill(' ') << endl;
             infile.close();
         }
         else {
