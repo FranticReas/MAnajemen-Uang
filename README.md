@@ -1,1 +1,1 @@
-Yang Alpha
+Yang Beta
