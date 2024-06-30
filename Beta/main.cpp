@@ -78,6 +78,7 @@ void mainmenu()
 {
     PengelolaKeuangan pengelola;
     int pilihan;
+    Auth auth;
     
     do {
 
@@ -87,9 +88,14 @@ void mainmenu()
         cout << "2. Lihat Ringkasan\n";
         cout << "3. Lihat Transaksi\n";
         cout << "4. Cari Transaksi berdasarkan Kategori\n";
+        
         //Cari dari tanggal
         //Menghapus transaksi
         cout << "5. Keluar\n";
+        if (auth.isAdmin(username))
+        {
+            cout << "6. Lihat log file" << endl;
+        }
         cout << "Masukkan pilihan Anda: ";
         cin >> pilihan;
 
@@ -115,10 +121,20 @@ void mainmenu()
             break;
         }
         case 5:
+        {
             pengelola.clearScreen();
             cout << "Keluar...\n";
             system("pause");
             break;
+        }
+        case 6:
+        {
+            pengelola.clearScreen();
+            cout << "Selamat datang, Admin! Berikut adalah log transaksi:" << endl;
+            LogTransaksi::displayLog();
+            system("pause");
+            break;
+        }
         default:
             cout << "Pilihan tidak valid. Silakan coba lagi.\n";
         }

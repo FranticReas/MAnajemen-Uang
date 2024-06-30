@@ -1,1 +1,2 @@
-User: Aril, Tanggal: 123, Kategori: 123, Jumlah: 123
+admin 2024-05-21 Menjual 400000
+admin 2024-12-21 Rede 300000

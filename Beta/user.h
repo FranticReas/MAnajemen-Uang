@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 using namespace std;
 
 class User {
@@ -59,6 +60,10 @@ public:
         else {
             cerr << "Gagal membuka file users.txt" << endl;
         }
+    }
+
+    bool isAdmin(const string& username) {
+        return username == "admin";
     }
 };
 

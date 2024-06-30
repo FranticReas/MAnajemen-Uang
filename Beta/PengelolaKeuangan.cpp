@@ -29,7 +29,7 @@ void PengelolaKeuangan::tambahTransaksi(string username) {
         totalPengeluaran += transaksi.jumlah;
     }
     Transaksi1 transaksi1(transaksi.tanggal, transaksi.kategori, transaksi.jumlah);
-    LogTransaksi::log(username, transaksi);
+    LogTransaksi::log(username, transaksi1);
     cout << "Transaksi berhasil ditambahkan.\n";
 }
 
