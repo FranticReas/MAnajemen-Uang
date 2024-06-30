@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b652ddd7-20bb-48ca-ab4a-460ab414a721}</ProjectGuid>
+    <ProjectGuid>{2bf7ee66-0206-4b49-a009-98d57ca9f8be}</ProjectGuid>
     <RootNamespace>Alpha</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -127,13 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Beta\LinkedList.h" />
-    <ClInclude Include="..\Beta\PengelolaKeuangan.h" />
+    <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PengelolaKeuangan.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Beta\LinkedList.cpp" />
-    <ClCompile Include="..\Beta\main.cpp" />
-    <ClCompile Include="..\Beta\PengelolaKeuangan.cpp" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="PengelolaKeuangan.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
