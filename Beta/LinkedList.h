@@ -30,9 +30,11 @@ private:
 public:
     LinkedList();
     void addTransaction(const Transaksi& transaksi);
+    void deleteTransaction(const string& tanggal, const string& kategori);
     void displayTransactions() const;
     vector<Transaksi> toVector() const;
     void searchByCategory(const string& kategori) const;
+    void searchByDate(const string& tanggal) const;
 };
 
 #endif

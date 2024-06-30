@@ -18,6 +18,7 @@ int main() {
     PengelolaKeuangan pengelola;
     int pilihan;
     Auth auth;
+   
     ucapan_selamat_datang();
 
     do
@@ -78,23 +79,28 @@ void mainmenu()
 {
     PengelolaKeuangan pengelola;
     int pilihan;
+    int pilihanUrut;
     Auth auth;
+    LinkedList kelola;
+    string tanggal, kategori;
     
     do {
 
         pengelola.clearScreen();
         cout << "Pengelola Keuangan\n";
         cout << "1. Tambah Transaksi\n";
-        cout << "2. Lihat Ringkasan\n";
-        cout << "3. Lihat Transaksi\n";
-        cout << "4. Cari Transaksi berdasarkan Kategori\n";
+        cout << "2. Hapus Transaksi\n";
+        cout << "3. Lihat Ringkasan\n";
+        cout << "4. Lihat Transaksi\n";
+        cout << "5. Cari Transaksi berdasarkan Kategori\n";
+        cout << "6. Cari Transaksi berdasarkan Tanggal\n";
         
         //Cari dari tanggal
         //Menghapus transaksi
-        cout << "5. Keluar\n";
+        cout << "7. Keluar\n";
         if (auth.isAdmin(username))
         {
-            cout << "6. Lihat log file" << endl;
+            cout << "8. Lihat log file" << endl;
         }
         cout << "Masukkan pilihan Anda: ";
         cin >> pilihan;
@@ -104,30 +110,48 @@ void mainmenu()
             pengelola.tambahTransaksi(username);
             break;
         case 2:
+            pilihanUrut = 1;
+            pengelola.tampilkanTransaksi(pilihanUrut == 1);
+            cout << "Masukkan tanggal dan kategori transaksi yang ingin dihapus: " << endl;
+            cout << "Tanggal  : "; cin >> tanggal;
+            cout << "Kategori : "; cin >> kategori; cout << endl;
+            pengelola.hapusTransaksi(tanggal, kategori);
+            system("pause");
+            break;
+        case 3:
+        {
             pengelola.tampilkanRingkasan();
             break;
-        case 3: {
-            int pilihanUrut;
+        }
+        case 4: {
+            
             cout << "Urutkan berdasarkan tanggal? (1 = Ya, 0 = Tidak): ";
             cin >> pilihanUrut;
             pengelola.tampilkanTransaksi(pilihanUrut == 1);
             break;
         }
-        case 4: {
-            string kategori;
+        case 5: {
+            
             cout << "Masukkan kategori yang ingin dicari: ";
             cin >> kategori;
             pengelola.cariTransaksiKategori(kategori);
             break;
         }
-        case 5:
+        case 6:
+        {
+            cout << "Masukkan tanggal yang ingin dicari: ";
+            cin >> tanggal;
+            pengelola.cariTransaksiTanggal(tanggal);
+            break;
+        }
+        case 7:
         {
             pengelola.clearScreen();
             cout << "Keluar...\n";
             system("pause");
             break;
         }
-        case 6:
+        case 8:
         {
             if (auth.isAdmin(username))
             {
@@ -144,7 +168,7 @@ void mainmenu()
         default:
             cout << "Pilihan tidak valid. Silakan coba lagi.\n";
         }
-    } while (pilihan != 5);
+    } while (pilihan != 7);
 }
 
 void ucapan_selamat_datang()

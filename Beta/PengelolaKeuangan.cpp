@@ -73,6 +73,18 @@ void PengelolaKeuangan::cariTransaksiKategori(const string& kategori) const {
     daftarTransaksi.searchByCategory(kategori);
 }
 
+void PengelolaKeuangan::cariTransaksiTanggal(const string& tanggal) const {
+    clearScreen();
+    cout << "\nTransaksi dengan tanggal \"" << tanggal << "\":\n";
+    daftarTransaksi.searchByDate(tanggal);
+}
+
+void PengelolaKeuangan::hapusTransaksi(const string& tanggal, const string& kategori)  {
+    clearScreen();
+    cout << "\nTransaksi dengan kategori \"" << kategori << "\":\n";
+    daftarTransaksi.deleteTransaction(tanggal, kategori);
+}
+
 void PengelolaKeuangan::clearScreen() const {
     system(CLEAR_COMMAND);
 }

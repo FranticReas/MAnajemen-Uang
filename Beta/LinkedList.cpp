@@ -16,6 +16,8 @@ void LinkedList::addTransaction(const Transaksi& transaksi) {
     }
 }
 
+
+
 void LinkedList::displayTransactions() const {
     Node* temp = head;
     cout << "+" << setfill('-') << setw(63) << "+" << setfill(' ') << endl;
@@ -63,3 +65,38 @@ void LinkedList::searchByCategory(const string& kategori) const {
         system("pause");
     }
 }
+
+void LinkedList :: searchByDate(const string& tanggal) const {
+    Node* temp = head;
+    while (temp) {
+        if (temp->data.tanggal == tanggal) {
+            cout << "Tanggal: " << temp->data.tanggal
+                << ", Kategori: " << temp->data.kategori
+                << ", Jumlah: " << temp->data.jumlah << endl;
+        }
+        temp = temp->next;
+    }
+}
+
+void LinkedList::deleteTransaction(const string& tanggal, const string& kategori) {
+    Node* temp = head;
+    Node* prev = nullptr;
+    
+    while (temp) {
+        if (temp->data.tanggal == tanggal && temp->data.kategori == kategori) {
+            if (prev) {
+                prev->next = temp->next;
+            }
+            else {
+                head = temp->next;
+            }
+            delete temp;
+            cout << "Transaksi pada tanggal " << tanggal << " dengan kategori " << kategori << " telah dihapus." << endl;
+            return;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    cout << "Transaksi tidak ditemukan." << endl;
+}
+
