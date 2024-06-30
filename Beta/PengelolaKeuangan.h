@@ -11,7 +11,7 @@ private:
 
 public:
     PengelolaKeuangan();
-    void tambahTransaksi();
+    void tambahTransaksi(string username);
     void tampilkanRingkasan() const;
     void tampilkanTransaksi(bool urutkan = false);
     void cariTransaksiKategori(const string& kategori) const;

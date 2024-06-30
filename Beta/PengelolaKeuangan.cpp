@@ -1,4 +1,6 @@
 #include "PengelolaKeuangan.h"
+#include "transaksi.h"
+#include "user.h"
 
 #ifdef _WIN32
 #define CLEAR_COMMAND "cls"
@@ -6,10 +8,9 @@
 #define CLEAR_COMMAND "clear"
 #endif
 
-
 PengelolaKeuangan::PengelolaKeuangan() : totalPemasukan(0.0), totalPengeluaran(0.0) {}
 
-void PengelolaKeuangan::tambahTransaksi() {
+void PengelolaKeuangan::tambahTransaksi(string username) {
     clearScreen();
     Transaksi transaksi;
     cout << "Masukkan tanggal (YYYY-MM-DD): ";
@@ -27,7 +28,8 @@ void PengelolaKeuangan::tambahTransaksi() {
     else {
         totalPengeluaran += transaksi.jumlah;
     }
-
+    Transaksi1 transaksi1(transaksi.tanggal, transaksi.kategori, transaksi.jumlah);
+    LogTransaksi::log(username, transaksi);
     cout << "Transaksi berhasil ditambahkan.\n";
 }
 
