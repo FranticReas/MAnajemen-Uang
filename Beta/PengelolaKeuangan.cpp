@@ -67,7 +67,6 @@ void PengelolaKeuangan::tampilkanTransaksi(bool urutkan) {
 
 void PengelolaKeuangan::cariTransaksiKategori(const string& kategori) const {
     clearScreen();
-    cout << "\nTransaksi dengan kategori \"" << kategori << "\":\n";
     daftarTransaksi.searchByCategory(kategori);
 }
 
