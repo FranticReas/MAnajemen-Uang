@@ -13,10 +13,11 @@ int main() {
 
     do
     {
+        pengelola.clearScreen();
         cout << "Sistem Login" << endl;
         cout << "1. Login" << endl;
         cout << "2. Tambah Pengguna Baru" << endl;
-        cout << "3. Kekuar" << endl;
+        cout << "3. Keluar" << endl;
         cout << "Masukkan pilihan Anda: ";
         cin >> pilihan;
 
@@ -24,6 +25,7 @@ int main() {
         {
         case 1:
         {
+            pengelola.clearScreen();
             cout << "Masukkan username: ";
             cin >> username;
             cout << "Masukkan password: ";
@@ -40,16 +42,19 @@ int main() {
         }
         case 2:
         {
+            pengelola.clearScreen();
             cout << "Masukkan username baru: ";
             cin >> username;
             cout << "Masukkan password baru: ";
             cin >> password;
             auth.addUser(username, password);
             cout << "Pengguna baru berhasil ditambahkan. Silahkan Login" << endl;
+            system("pause");
             break;
         }
         default:
         {
+            pengelola.clearScreen();
             cout << "Pilihan tidak valid." << endl;
             break;
         }
@@ -66,7 +71,7 @@ void mainmenu()
     do {
 
         pengelola.clearScreen();
-        cout << "\nPengelola Keuangan\n";
+        cout << "Pengelola Keuangan\n";
         cout << "1. Tambah Transaksi\n";
         cout << "2. Lihat Ringkasan\n";
         cout << "3. Lihat Transaksi\n";
