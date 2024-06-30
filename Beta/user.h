@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 #include <fstream>
+#include <sstream>
 using namespace std;
 
 class User {
@@ -27,11 +28,17 @@ public:
         // Membaca daftar pengguna dari file (jika ada)
         ifstream infile("users.txt");
         if (infile.is_open()) {
-            string username, password;
-            while (infile >> username >> password) {
+            string line;
+            while (getline(infile, line)) {
+                stringstream ss(line);
+                string username, password;
+                ss >> username >> password;
                 users[username] = User(username, password);
             }
             infile.close();
+        }
+        else {
+            cerr << "Gagal membuka file users.txt" << endl;
         }
     }
 
@@ -48,6 +55,9 @@ public:
         if (outfile.is_open()) {
             outfile << username << " " << password << endl;
             outfile.close();
+        }
+        else {
+            cerr << "Gagal membuka file users.txt" << endl;
         }
     }
 };

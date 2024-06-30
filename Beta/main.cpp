@@ -5,11 +5,15 @@
 
 using namespace std;
 string username, password;
+
 void mainmenu();
+void inisialisasi();
+
 int main() {
     PengelolaKeuangan pengelola;
     int pilihan;
     Auth auth;
+    inisialisasi();
 
     do
     {
@@ -33,12 +37,14 @@ int main() {
 
             if (auth.login(username, password)) {
                 cout << "Login berhasil!" << endl;
+                system("pause");
                 mainmenu();
             }
             else {
                 cout << "Username atau password salah." << endl;
-                break;
+                system("pause");
             }
+            break;
         }
         case 2:
         {
@@ -76,6 +82,8 @@ void mainmenu()
         cout << "2. Lihat Ringkasan\n";
         cout << "3. Lihat Transaksi\n";
         cout << "4. Cari Transaksi berdasarkan Kategori\n";
+        //Urutin dari tanggal
+        //Menghapus transaksi
         cout << "5. Keluar\n";
         cout << "Masukkan pilihan Anda: ";
         cin >> pilihan;
@@ -104,9 +112,25 @@ void mainmenu()
         case 5:
             pengelola.clearScreen();
             cout << "Keluar...\n";
+            system("pause");
             break;
         default:
             cout << "Pilihan tidak valid. Silakan coba lagi.\n";
         }
     } while (pilihan != 5);
+}
+
+void inisialisasi()
+{
+    std::vector <User> user;
+    std::ifstream akunt("user.txt");
+    if (akunt.is_open())
+    {
+        std::string username, password;
+        while (std::getline(akunt, username, ' '))
+        {
+            std::getline(akunt, password);
+            user.push_back({ username, password });
+        }
+    }
 }
