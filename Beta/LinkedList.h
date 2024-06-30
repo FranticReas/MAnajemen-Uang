@@ -13,6 +13,9 @@ struct Transaksi {
     string tanggal;
     string kategori;
     double jumlah;
+    string username;
+
+    Transaksi() : jumlah(0.0) {}
 };
 
 struct Node {
